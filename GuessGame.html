@@ -1,0 +1,121 @@
+<!doctype html>
+
+<hrml>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="content-type" content="text\html" charset="utf-8">
+        <meta name="viewport" content="width=device-width, intial-scale=1">
+        
+        <title>Javascript box:what color is the box?</title>
+        
+        <style>
+            #colorReturned
+            {
+                width: 200px;
+                height: 200px;
+                background-color: red;
+                display: none;
+            }
+            
+        </style>
+        
+    </head>
+    
+    <body>
+        Guess the color:
+        <select id="myColorGuess">
+            <option value="1">Red</option>
+            <option value="2">Orange</option>
+            <option value="3">Yellow</option>  
+        </select>
+        <br>
+        <br>
+        <button id="runTest">Guess the Color!</button>
+        <br>
+        <br>
+        
+        <div id="colorReturned"></div>
+    
+        <script>
+            
+        var myColor = parseInt(document.getElementById("myColorGuess").value);
+            
+            //--------------------------------------------------------------------------
+            //test to that the button has been click and run the code for guessing game
+            //--------------------------------------------------------------------------
+          
+            document.getElementById("runTest").onclick = function() {
+              
+              //  myColor = parseInt(document.getElementById("myColorGuess").value);
+                var theCorrectColor //color name matched with number
+    
+                
+                //store he random number between 1 and 3
+                //red = 1
+                //orange = 2
+                //yellow = 3
+                
+         var theColor = (Math.floor(Math.random() * 3) + 1);
+                
+                //alert("User picked = "+myColor);
+               // alert("Computer picked = "+theColor);
+                
+                
+                //Code to  check the color with guess color
+                if(theColor == 1)
+                    { //test for red
+                        theCorrectColor = "Red";
+                        document.getElementById("colorReturned").style.display= "block";
+                        document.getElementById("colorReturned").style.backgroundColor = "red";
+                        
+                        if(theColor == myColor)
+                            {
+                                alert("You are correct! The correct color is "+theCorrectColor);
+                            }
+                        else
+                            {
+                                alert("Sorry!You are wrong. The correct color is "+theCorrectColor);
+                            }
+                    }
+                else if(theColor == 2)
+                    { //test for orange
+                        theCorrectColor = "Orange";
+                        document.getElementById("colorReturned").style.display= "block";
+                        document.getElementById("colorReturned").style.backgroundColor = "orange";
+                        
+                        if(theColor == myColor)
+                            {
+                                alert("You are correct! The correct color is "+theCorrectColor);
+                            }
+                        else
+                            {
+                                alert("Sorry!You are wrong. The correct color is "+theCorrectColor);
+                            }
+                        
+                    }
+                else
+                    { //test for yellow
+                        theCorrectColor = "Yellow";
+                        document.getElementById("colorReturned").style.display= "block";
+                        document.getElementById("colorReturned").style.backgroundColor = "yellow";
+                        
+                        if(theColor == myColor)
+                            {
+                                alert("You are correct! The correct color is "+theCorrectColor);
+                            }
+                        else
+                            {
+                                alert("Sorry!You are wrong. The correct color is "+theCorrectColor);
+                            }
+                    }
+                
+            }
+          
+        </script>
+    </body>
+    
+</hrml>
+    
+    
+    
+    

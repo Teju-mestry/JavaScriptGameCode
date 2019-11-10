@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>WhileUSe</title>
+    </head>
+    
+    <body>
+
+        <div id="content"></div>
+        <input id="myNumber" type="number">&nbsp;&nbsp;
+        <button id="guessNumber">Guess the Number!</button>
+        
+        <script>
+            var MyNum;
+            var compCorrect = false;
+            var CompGuess;
+            var tries = 1;
+
+            document.getElementById("guessNumber").onclick = function()
+            {
+                MyNum = document.getElementById("myNumber").value;
+                
+                CompGuess =  Math.floor((Math.random()*10) + 1);
+
+               // alert("Number of fingers behind my back: "+MyNum);
+              //  alert("Computer Guess:"+CompGuess);
+
+              if(CompGuess == MyNum)
+              {
+                  alert("Yes!Computer guess right at first attempt.it's "+MyNum);
+              }
+              else
+              {
+                  //alert("No computer guess "+CompGuess+" which is wrong");
+                  while(compCorrect == false)
+                  {
+                     CompGuess =  Math.floor((Math.random()*10) + 1);
+                     alert("computer's new guess: "+CompGuess);
+                     tries++;
+
+                     if(MyNum == CompGuess)
+                     {
+                         alert("Yes!Computer guess right number as "+CompGuess+" after "+tries+" attempts");
+                         compCorrect = true;
+                     }
+
+                  }
+              }
+            }
+         
+            
+    
+        </script>
+    </body>
+</html>

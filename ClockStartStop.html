@@ -1,0 +1,53 @@
+<!Doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Clock start and Stop</title>
+    </head>
+    
+    <body>
+     
+        <div id="showTime" style="color: chartreuse;font-size:xx-large"></div><br><br>
+
+        <button onclick="stopClock()" >Stop the clock!</button>
+        
+        <script>
+      /* var testInterval = setInterval(function()
+        {
+            alert("This is my fisrt interval");
+        }
+        ,3000);
+       /* var testTimeout = setTimeout(function()
+        {
+            alert("This is my fisrt timeout");
+        }
+        ,3000);*/
+
+        var myInterval = setInterval(function(){ time() },1000);
+        var myButton = document.getElementsByTagName("button")[0];
+
+        function time()
+        {
+            var theDate = new Date();
+            var thetime = theDate.toLocaleTimeString();
+            document.getElementById("showTime").innerHTML = thetime;
+        }
+
+        function stopClock()
+        {
+            clearInterval(myInterval);
+            myButton.innerHTML="Start the clock!";
+            myButton.setAttribute("onclick","startClock()");
+        }
+
+        function startClock()
+        {
+            myInterval = setInterval(function(){ time() },1000);
+            myButton.innerHTML= "Stop the clock!";
+            myButton.setAttribute("onclick","stopClock()");
+        }
+     
+
+        </script>
+    </body>
+</html>
