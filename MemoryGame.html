@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MemoryGame</title>
+    </head>
+
+    <body>
+        <h1 style="color: cadetblue;">Generate the Number</h1>
+        
+        <div id="content"> <!-- content will change here after refresh-->
+        <div id="randomNum"></div> <!-- will show random number-->
+        <br>
+        <button id="gene">Generate</button>
+        <br><br>
+        <div id="refresh"></div>
+        </div><br>
+        <div id="result"></div><!--will show result after matching digits-->
+    </body>
+
+    <script>
+        var CompNum = Math.floor(Math.random() * 1000000); //generate and store six digit random number
+
+        document.getElementById("gene").onclick = function()
+        { //called after click on generate
+ 			console.log(document.getElementById("gene"));
+            document.getElementById("randomNum").innerHTML = CompNum; //will pass random number
+            document.getElementById("refresh").innerHTML = "Refreshing the page in 5 sec....";
+            setTimeout(myfun,5000); //it will call mufun after function for refersh the page
+        }
+        
+        function myfun()
+        { //refreshing will change the content to
+            document.getElementById("content").innerHTML = "<br><input type='text' id='myGuess'>"+//wiil take players input
+
+            "<br><br><button onclick='checkGuess(myGuess)'>Guess</button>&nbsp&nbsp"+//calling checkGuess fun by passing id of input
+
+            "<button onclick='window.location.reload(true)'>Replay</button>";//will load the game again for replay
+        }
+
+       	function checkGuess(myGuess) {
+
+       		var MyNum =  document.getElementById('myGuess').value;//user input store
+
+            if(MyNum == "")//check for blank input
+            {
+                alert("Enter the number!");
+            }
+            else
+            {
+                var cou = 0;
+                CompNum = CompNum.toString();
+                MyNum = MyNum.toString();
+                
+                for(i=0;i<6;i++) //for counting number of matching digits between random and input numbers
+                {
+                    if(CompNum[i] == MyNum[i])
+                    {
+                        cou++;
+                    }
+                }
+
+                document.getElementById("result").innerHTML = cou+" Correct Guess"; //will show the result
+            }
+       	}
+    </script>
+</html>
